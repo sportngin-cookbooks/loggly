@@ -1,0 +1,16 @@
+$ModLoad imfile
+$InputFilePollInterval 10
+$PrivDropToGroup adm
+
+# Input for FILE.LOG
+$InputFileName <%= @path %>
+$InputFileTag <%= @tag %>:
+$InputFileStateFile stat-<%= @tag %>
+$InputFileSeverity <%= @severity %>
+$InputRunFileMonitor
+
+#Add a tag for events from this file
+$template LogglyFormat<%= @tag %>,"<%%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [<%= @token %>@41058 tag=\"<%= @tag %>\"] %msg%\n"
+
+if $programname == '<%= @tag %>' then @@logs-01.loggly.com:<%= @port %>;LogglyFormat<%= @tag %>
+if $programname == '<%= @tag %>' then ~
