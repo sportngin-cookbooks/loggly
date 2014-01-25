@@ -25,7 +25,7 @@ action :create do
           :severity => new_resource.severity,
           :port => new_resource.port
         )
-        notifies :restart, resources(:service => "rsyslog"), :delayed
+        notifies :restart, "service[rsyslog]", :delayed
         new_resource.updated_by_last_action(true)
       end
     end

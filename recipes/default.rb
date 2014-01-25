@@ -8,7 +8,7 @@ Chef::Log.info("Enabling Loggly for #{node[:loggly][:account]}")
 template '/etc/rsyslog.d/22-loggly.conf' do
   source "base-loggly.conf.erb"
   variables(node[:loggly])
-  notifies :restart, resources(:service => "rsyslog"), :delayed
+  notifies :restart, "service[rsyslog]", :delayed
 end
 
 node[:loggly][:files_to_monitor].each do |log_file|
