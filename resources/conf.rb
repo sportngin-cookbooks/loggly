@@ -9,5 +9,3 @@ attribute :severity, :kind_of => String, :default => "notice", :equal_to => %w(p
 attribute :port,  :kind_of => Integer, :default => 514
 
 attribute :source, :kind_of => String, :default => "loggly.conf.erb"
-
-

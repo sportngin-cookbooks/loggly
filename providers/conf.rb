@@ -47,10 +47,8 @@ action :delete do
 end
 
 def installed(tag)
-  cmdStr = "ls /etc/rsyslog.d/22-loggly-#{tag}.conf"
-  cmd = Mixlib::ShellOut.new(cmdStr)
+  cmd = Mixlib::ShellOut.new("ls /etc/rsyslog.d/22-loggly-#{tag}.conf")
   cmd.run_command
-  Chef::Log.debug "#{tag}_conf_exists?: #{cmdStr}"
   Chef::Log.debug "#{tag}_conf_exists?: #{cmd.stdout}"
   begin
     cmd.error!
