@@ -6,4 +6,3 @@ before_script:
 script:
   - bundle exec foodcritic -f any .
   - bundle exec rspec --color --format progress
-  - bundle exec rubocop
