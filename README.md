@@ -1,4 +1,5 @@
 # loggly cookbook
+[![Build Status](https://travis-ci.org/sportngin-cookbooks/loggly.png)](https://travis-ci.org/sportngin-cookbooks/loggly)
 
 # Requirements
 
